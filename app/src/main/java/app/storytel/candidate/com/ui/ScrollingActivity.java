@@ -1,4 +1,4 @@
-package app.storytel.candidate.com;
+package app.storytel.candidate.com.ui;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,6 +23,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import app.storytel.candidate.com.data.Photo;
+import app.storytel.candidate.com.data.Post;
+import app.storytel.candidate.com.data.PostAndImages;
+import app.storytel.candidate.com.R;
 
 public class ScrollingActivity extends AppCompatActivity {
     private static final String POSTS_URL = "https://jsonplaceholder.typicode.com/posts";

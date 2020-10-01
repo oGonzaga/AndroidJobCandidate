@@ -1,4 +1,4 @@
-package app.storytel.candidate.com;
+package app.storytel.candidate.com.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.RequestManager;
 import java.util.Random;
+
+import app.storytel.candidate.com.data.PostAndImages;
+import app.storytel.candidate.com.R;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
