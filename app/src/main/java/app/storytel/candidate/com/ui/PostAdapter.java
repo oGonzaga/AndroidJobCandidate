@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.RequestManager;
 import java.util.Random;
 
-import app.storytel.candidate.com.data.PostAndImages;
 import app.storytel.candidate.com.R;
+import app.storytel.candidate.com.data.PostAndImages;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
@@ -32,7 +32,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     @Override
     public void onBindViewHolder(PostViewHolder holder, int position) {
-        holder.title.setText(mData.mPosts.get(position).title);
+        holder.title.setText(mData.mPhotos.get(position).title);
         holder.body.setText(mData.mPosts.get(position).body);
         int index = new Random().nextInt(mData.mPhotos.size() - 1);
         String imageUrl = mData.mPhotos.get(index).thumbnailUrl;

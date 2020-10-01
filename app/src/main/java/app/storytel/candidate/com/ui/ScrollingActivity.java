@@ -23,11 +23,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
-
+import app.storytel.candidate.com.R;
 import app.storytel.candidate.com.data.Photo;
 import app.storytel.candidate.com.data.Post;
 import app.storytel.candidate.com.data.PostAndImages;
-import app.storytel.candidate.com.R;
 
 public class ScrollingActivity extends AppCompatActivity {
     private static final String POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
