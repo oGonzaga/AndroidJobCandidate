@@ -4,7 +4,7 @@ import app.storytel.candidate.com.data.model.Photo
 import app.storytel.candidate.com.data.model.Post
 import retrofit2.http.GET
 
-interface PostServices {
+interface Services {
 
     companion object {
         private const val POST_PATH = "/posts"

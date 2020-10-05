@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.RequestManager;
+
 import java.util.Random;
 
 import app.storytel.candidate.com.R;
@@ -36,7 +39,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.body.setText(mData.mPosts.get(position).body);
         int index = new Random().nextInt(mData.mPhotos.size() - 1);
         String imageUrl = mData.mPhotos.get(index).thumbnailUrl;
-//        mRequestManager.load(imageUrl).into(holder.image);
+        mRequestManager.load(imageUrl).into(holder.image);
         holder.body.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

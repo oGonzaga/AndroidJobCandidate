@@ -1,4 +1,4 @@
-package app.storytel.candidate.com.ui.main
+package app.storytel.candidate.com.ui.scrolling
 
 import android.view.LayoutInflater
 import android.view.View
