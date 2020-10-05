@@ -1,5 +1,6 @@
 package app.storytel.candidate.com.data_remote
 
+import app.storytel.candidate.com.data.model.Photo
 import app.storytel.candidate.com.data.model.Post
 import retrofit2.http.GET
 
@@ -13,4 +14,7 @@ interface PostServices {
 
     @GET(POST_PATH)
     suspend fun getPosts(): List<Post>
+
+    @GET(PHOTOS_PATH)
+    suspend fun getPhotos(): List<Photo>
 }
