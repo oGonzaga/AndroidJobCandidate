@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.storytel.candidate.com.R
 import app.storytel.candidate.com.data.model.Post
+import app.storytel.candidate.com.data.model.PostAndImages
 import kotlinx.android.synthetic.main.post_item.view.*
 
 class PostAdapter(private val onPostClick: (post: Post) -> Unit) :
@@ -13,8 +14,8 @@ class PostAdapter(private val onPostClick: (post: Post) -> Unit) :
 
     private val mPostList: MutableList<Post> = mutableListOf()
 
-    fun addItems(postList: List<Post>) {
-        mPostList.addAll(postList)
+    fun addItems(postList: PostAndImages?) {
+        mPostList.addAll(postList?.posts!!)
         notifyDataSetChanged()
     }
 

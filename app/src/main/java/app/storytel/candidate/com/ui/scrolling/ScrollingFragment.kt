@@ -11,11 +11,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import app.storytel.candidate.com.R
-import app.storytel.candidate.com.data.model.Photo
 import app.storytel.candidate.com.data.model.Post
+import app.storytel.candidate.com.data.model.PostAndImages
 import app.storytel.candidate.com.data_remote.Resource
 import app.storytel.candidate.com.data_remote.model.Status
 import app.storytel.candidate.com.ui.extensions.gone
+import app.storytel.candidate.com.ui.extensions.invisible
 import app.storytel.candidate.com.ui.extensions.visible
 import kotlinx.android.synthetic.main.content_scrolling.*
 import kotlinx.android.synthetic.main.fragment_scrolling.*
@@ -25,7 +26,7 @@ class ScrollingFragment : Fragment() {
 
     private val viewModel: ScrollingViewModel by viewModel()
     private val adapter = PostAdapter(this::onPostClick)
-    private val postObserver = Observer<Resource<List<Post>>> {
+    private val requestObserver = Observer<Resource<PostAndImages>> {
         when (it.status) {
             Status.SUCCESS -> {
                 pbLoading.gone()
@@ -37,22 +38,10 @@ class ScrollingFragment : Fragment() {
                 pbLoading.gone()
                 Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
             }
-            Status.LOADING -> pbLoading.visible()
-        }
-    }
-    private val photosObserver = Observer<Resource<List<Photo>>> {
-        when (it.status) {
-            Status.SUCCESS -> {
-                pbLoading.gone()
-                recyclerView.visible()
-
-                recyclerView.adapter = adapter
+            Status.LOADING -> {
+                pbLoading.visible()
+                recyclerView.invisible()
             }
-            Status.ERROR -> {
-                pbLoading.gone()
-                Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
-            }
-            Status.LOADING -> pbLoading.visible()
         }
     }
 
@@ -69,11 +58,7 @@ class ScrollingFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.let {
-            it.postList.observe(this.viewLifecycleOwner, postObserver)
-            it.photosList.observe(this.viewLifecycleOwner, photosObserver)
-
-        }
+        viewModel.getPostAndPhotos.observe(this.viewLifecycleOwner, requestObserver)
     }
 
     private fun onPostClick(post: Post) {
