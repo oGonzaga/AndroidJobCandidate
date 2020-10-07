@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -18,7 +17,6 @@ import app.storytel.candidate.com.data_remote.model.Status
 import app.storytel.candidate.com.ui.extensions.gone
 import app.storytel.candidate.com.ui.extensions.invisible
 import app.storytel.candidate.com.ui.extensions.visible
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.content_scrolling.*
 import kotlinx.android.synthetic.main.fragment_scrolling.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,9 +35,10 @@ class ScrollingFragment : Fragment() {
             }
             Status.ERROR -> {
                 pbLoading.gone()
-                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+                retryContainer.visible()
             }
             Status.LOADING -> {
+                retryContainer.gone()
                 pbLoading.visible()
                 recyclerView.invisible()
             }
@@ -55,7 +54,9 @@ class ScrollingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
-
+        retryContainer.setOnClickListener {
+            viewModel.request()
+        }
         initObservers()
     }
 
