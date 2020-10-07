@@ -1,6 +1,6 @@
 package app.storytel.candidate.com.data.model
 
 data class PostAndImages(
-    val postList: List<Post>? = null,
-    val photoList: List<Photo>? = null
+    val posts: List<Post>? = null,
+    val photos: List<Photo>? = null
 )

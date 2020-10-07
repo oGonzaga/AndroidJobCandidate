@@ -25,4 +25,11 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <style name="TitleDark">
+        <item name="android:textSize">24sp</item>
+        <item name="color">@color/colorPrimary</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+    </style>
+
 </resources>

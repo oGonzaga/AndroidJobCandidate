@@ -2,6 +2,8 @@ package app.storytel.candidate.com.data_remote
 
 import app.storytel.candidate.com.data_remote.model.Status
 
+typealias ResourceList<T> = Resource<List<T>>
+
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
         fun <T> success(data: T?): Resource<T> {

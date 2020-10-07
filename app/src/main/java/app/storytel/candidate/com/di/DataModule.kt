@@ -1,9 +1,9 @@
 package app.storytel.candidate.com.di
 
-import app.storytel.candidate.com.data.PostRepository
-import app.storytel.candidate.com.data.PostRepositoryImpl
+import app.storytel.candidate.com.data.Repository
+import app.storytel.candidate.com.data.RepositoryImpl
 import org.koin.dsl.module
 
 val dataModule = module {
-    factory { PostRepositoryImpl(get()) as PostRepository }
+    factory { RepositoryImpl(get()) as Repository }
 }

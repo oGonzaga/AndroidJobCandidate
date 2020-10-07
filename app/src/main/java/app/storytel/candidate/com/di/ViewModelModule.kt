@@ -1,9 +1,9 @@
 package app.storytel.candidate.com.di
 
-import app.storytel.candidate.com.ui.main.MainViewModel
+import app.storytel.candidate.com.ui.scrolling.ScrollingViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    viewModel { MainViewModel(get()) }
+    viewModel { ScrollingViewModel(get()) }
 }
