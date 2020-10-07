@@ -9,11 +9,11 @@ import app.storytel.candidate.com.data.model.Photo
 import app.storytel.candidate.com.data.model.Post
 import app.storytel.candidate.com.data.model.PostAndImages
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 import kotlinx.android.synthetic.main.post_item.view.*
 
 class PostAdapter(
-    private val onPostClick: (post: Post) -> Unit) :
+    private val onPostClick: (post: Post) -> Unit
+) :
     RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
     private val mPostList: MutableList<Post> = mutableListOf()
@@ -46,7 +46,13 @@ class PostAdapter(
                     .placeholder(R.drawable.ic_baseline_image)
                     .into(image)
                 setOnClickListener {
-                    onPostClick(post)
+                    onPostClick(
+                        Post(
+                            id = post.id,
+                            title = post.title,
+                            imageUrl = post.imageUrl
+                        )
+                    )
                 }
             }
         }

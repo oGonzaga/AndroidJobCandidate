@@ -65,6 +65,7 @@ class ScrollingFragment : Fragment() {
     }
 
     private fun onPostClick(post: Post) {
-        findNavController().navigate(R.id.postDetailFragment)
+        val action = ScrollingFragmentDirections.actionScrollingFragmentToPostDetailFragment(post)
+        findNavController().navigate(action)
     }
 }
