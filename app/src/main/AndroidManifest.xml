@@ -24,15 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.DetailsActivity"
-            android:label="@string/title_activity_details"
-            android:parentActivityName=".ui.ScrollingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ScrollingActivity" />
-        </activity>
     </application>
 
 </manifest>
