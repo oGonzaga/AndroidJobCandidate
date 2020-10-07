@@ -28,7 +28,7 @@ class RepositoryImpl(
         }
     }
 
-    override suspend fun getComments(postId: String): ResourceList<Comment> {
+    override suspend fun getComments(postId: Int): ResourceList<Comment> {
         return try {
             responseHandler.handleSuccess(services.getComments(postId))
         } catch (e: Exception) {

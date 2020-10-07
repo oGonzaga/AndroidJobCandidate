@@ -8,5 +8,5 @@ import app.storytel.candidate.com.data_remote.ResourceList
 interface Repository {
     suspend fun getPosts(): ResourceList<Post>
     suspend fun getPhotos(): ResourceList<Photo>
-    suspend fun getComments(postId: String): ResourceList<Comment>
+    suspend fun getComments(postId: Int): ResourceList<Comment>
 }

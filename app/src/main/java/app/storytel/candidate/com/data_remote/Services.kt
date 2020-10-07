@@ -21,5 +21,5 @@ interface Services {
     suspend fun getPhotos(): List<Photo>
 
     @GET(COMMENTS_PATH)
-    suspend fun getComments(@Path("id") postId: String): List<Comment>
+    suspend fun getComments(@Path("id") postId: Int): List<Comment>
 }
